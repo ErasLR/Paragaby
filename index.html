@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PARTÍCULAS -->
+    <canvas id="particles"></canvas>
+
+    <!-- CORAZONES -->
+    <div id="hearts"></div>
+
+    <!-- =========================
+         PANTALLA INICIAL
+    ========================== -->
+
+    <section id="inicio" class="pantalla activa">
+
+        <div class="inicio-contenido">
+
+            <div class="corazon-grande">❤️</div>
+
+            <p class="pequeno">--- FELIZ CUMPLEAÑOS MI AMOR ---</p>
+
+            <!-- CAMBIA EL NOMBRE AQUÍ -->
+            <h1 id="nombreInicio"> GABRIELA </h1>
+
+            <p class="subtitulo">
+              "CONTENTO ES QUE ESTOY 
+             POR TODO LO QUE HA PASADO"
+            </p>
+
+            <button id="btnIniciar">
+                Iniciar ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ANIMACIÓN DEL NOMBRE
+    ========================== -->
+
+    <section id="nombrePantalla" class="pantalla">
+
+        <div class="nombre-animacion">
+
+            <p class="texto-pequeno">
+                Hay algo que quiero que veas...
+            </p>
+
+            <h2 id="nombreAnimado">
+                GABRIELA
+            </h2>
+
+            <p id="mensajeNombre" class="mensaje-oculto">
+                Quiero que sepas cuánto te amo ❤️
+            </p>
+
+            <button id="btnCarta" class="boton-secundario oculto">
+                ... 💌
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CARTA
+    ========================== -->
+
+    <section id="cartaPantalla" class="pantalla">
+
+        <div class="carta-container">
+
+            <div class="sobre">
+                💌
+            </div>
+
+            <h2>Para ti ❤️</h2>
+
+            <div class="carta">
+
+                <!-- CAMBIA EL TEXTO DE LA CARTA AQUÍ -->
+
+                <p>
+    Mi amor:
+</p>
+
+<p>
+    Hoy es un día muy especial porque es tu cumpleaños,
+    mi amor y quiero aprovechar este momento para recordarte
+    lo importante y especial que eres para mí Gaby.
+</p>
+
+<p>
+    Me encantaría poder estar ahí contigo, abrazarte,
+    verte sonreír y celebrar este día a tu lado.
+    Aunque hoy no pueda estar físicamente contigo,
+    ten en cuenta que soy el perro a tus pies.
+</p>
+
+<p>
+    Deseo de todo corazón que este nuevo año de tu vida
+    esté lleno de momentos bonitos, sueños cumplidos,
+    muchas sonrisas y todo aquello que te haga feliz.
+</p>
+
+<p>
+    Gracias por cada sonrisa, cada conversación,
+    cada momento y simplemente por existir.
+    Espero poder seguir compartiendo contigo muchos
+    momentos y recuerdos juntos.
+</p>
+
+<p>
+    Feliz cumpleaños, Gabriela. ❤️
+    Espero que hoy sea un día tan bonito y especial
+    como tú lo eres para mí.
+</p>
+
+<p>
+    Te quiero muchísimo y deseo poder estar a tu lado
+    en muchos cumpleaños más, compartiendo besos abrazos,
+    sonrisas, momentos y recuerdos que nunca olvidemos.
+</p>
+
+<p>
+
+</p>
+
+<p class="firma">
+    Con todo mi amor ❤️
+</p>
+
+
+            </div>
+
+            <button id="btnFotos" class="boton-secundario">
+                Ver nuestros recuerdos 📸
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOTOS
+    ========================== -->
+
+    <section id="fotosPantalla" class="pantalla">
+
+        <div class="fotos-container">
+
+            <p class="texto-pequeno">
+                Algunos de mis momentos contigo...
+            </p>
+
+            <h2>Nuestros recuerdos ❤️</h2>
+
+            <div class="galeria">
+
+                <div class="foto foto1">
+                    <img src="assets/image1.jpg" alt="Recuerdo 1">
+                    <span>❤️</span>
+                </div>
+
+                <div class="foto foto2">
+                    <img src="assets/image2.jpg" alt="Recuerdo 2">
+                    <span>✨</span>
+                </div>
+
+                <div class="foto foto3">
+                    <img src="assets/imagen3.jpg" alt="Recuerdo 3">
+                    <span>💕</span>
+                </div>
+
+                <div class="foto foto4">
+                    <img src="assets/imagen4.jpg" alt="Recuerdo 4">
+                    <span>🥰</span>
+                </div>
+
+            </div>
+
+            <button id="btnFinal" class="boton-secundario">
+                Hay algo más... ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL
+    ========================== -->
+
+    <section id="finalPantalla" class="pantalla">
+
+        <div class="final-container">
+
+            <div class="corazones-final">
+                ❤️ 💕 ❤️
+            </div>
+
+            <p class="texto-pequeno">
+               ...
+            </p>
+
+            <!-- CAMBIA ESTA FRASE -->
+            <h2>
+                Si pudiera elegir de nuevo,
+                te elegiría a ti una y mil veces.
+            </h2>
+
+            <!-- CAMBIA ESTA FRASE -->
+            <p class="final-texto">
+                Gracias por existir y por formar parte
+                de mi vida. ❤️
+            </p>
+
+            <div class="latido">
+                ❤️
+            </div>
+
+            <p class="final-firma">
+                TE AMO.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- AUDIO -->
+
+    <audio id="musica" loop>
+        <source src="assets/contenta.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

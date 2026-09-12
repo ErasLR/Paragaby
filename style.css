@@ -1,0 +1,670 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================
+   CANVAS
+========================= */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.pantalla {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s;
+
+    z-index: 5;
+}
+
+.pantalla.activa {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* =========================
+   INICIO
+========================= */
+
+.inicio-contenido {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+
+    animation: aparecer 2s ease;
+}
+
+.corazon-grande {
+    font-size: 70px;
+
+    animation:
+        latido 1.5s infinite,
+        brillo 2s infinite;
+
+    margin-bottom: 20px;
+}
+
+.pequeno {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #ff77b7;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(45px, 15vw, 90px);
+    font-weight: 700;
+
+    background: linear-gradient(
+        90deg,
+        #ff2f92,
+        #ff9dcc,
+        #ff2f92
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: gradiente 4s infinite;
+}
+
+.subtitulo {
+    margin-top: 20px;
+
+    color: #ccc;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+button {
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #ff238b,
+        #ff4da6
+    );
+
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    margin-top: 30px;
+
+    box-shadow:
+        0 0 15px rgba(255, 35, 139, .5),
+        0 0 40px rgba(255, 35, 139, .2);
+
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+
+    box-shadow:
+        0 0 25px rgba(255, 35, 139, .8),
+        0 0 60px rgba(255, 35, 139, .4);
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+.boton-secundario {
+    background: transparent;
+
+    border: 1px solid #ff3f9c;
+
+    box-shadow:
+        0 0 15px rgba(255, 63, 156, .3);
+}
+
+
+/* =========================
+   NOMBRE
+========================= */
+
+.nombre-animacion {
+    text-align: center;
+
+    width: 100%;
+    max-width: 700px;
+}
+
+.texto-pequeno {
+    color: #ff72b5;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+#nombreAnimado {
+    font-size: clamp(50px, 16vw, 110px);
+
+    color: #ff4da6;
+
+    text-shadow:
+        0 0 10px #ff2f92,
+        0 0 30px #ff2f92,
+        0 0 70px rgba(255, 47, 146, .7);
+
+    min-height: 1.2em;
+}
+
+.mensaje-oculto {
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: 1.5s;
+}
+
+.mensaje-visible {
+    opacity: 1;
+    transform: translateY(0);
+
+    margin-top: 25px;
+
+    font-size: 18px;
+
+    color: #eee;
+}
+
+.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mostrar-boton {
+    opacity: 1;
+    pointer-events: auto;
+
+    animation: subir .8s ease;
+}
+
+
+/* =========================
+   CARTA
+========================= */
+
+.carta-container {
+    width: 100%;
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    text-align: center;
+
+    padding: 10px;
+}
+
+.sobre {
+    font-size: 65px;
+
+    animation:
+        flotar 2s infinite ease-in-out,
+        brillo 2s infinite;
+}
+
+.carta-container h2 {
+    margin: 10px 0 25px;
+
+    color: #ff63ad;
+
+    font-size: 32px;
+}
+
+.carta {
+    position: relative;
+
+    text-align: left;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
+
+    border: 1px solid rgba(255, 91, 169, .35);
+
+    border-radius: 20px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 0 30px rgba(255, 38, 143, .12);
+
+    backdrop-filter: blur(10px);
+}
+
+.carta p {
+    color: #eee;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.carta .firma {
+    text-align: right;
+
+    color: #ff65ae;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   GALERÍA
+========================= */
+
+.fotos-container {
+    width: 100%;
+    max-width: 800px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    text-align: center;
+}
+
+.fotos-container h2 {
+    font-size: 32px;
+
+    color: #ff64ad;
+
+    margin-bottom: 30px;
+}
+
+.galeria {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    max-width: 600px;
+
+    margin: auto;
+}
+
+.foto {
+    position: relative;
+
+    background: #111;
+
+    padding: 8px;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.8);
+
+    transition: .5s;
+}
+
+.foto img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 3px;
+}
+
+.foto span {
+    position: absolute;
+
+    right: -10px;
+    bottom: -10px;
+
+    font-size: 25px;
+
+    filter:
+        drop-shadow(0 0 8px #ff3f9c);
+}
+
+.foto:hover {
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.04);
+}
+
+.foto1 {
+    transform: rotate(-4deg);
+}
+
+.foto2 {
+    transform: rotate(4deg);
+}
+
+.foto3 {
+    transform: rotate(3deg);
+}
+
+.foto4 {
+    transform: rotate(-3deg);
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-container {
+    width: 100%;
+    max-width: 650px;
+
+    text-align: center;
+}
+
+.corazones-final {
+    font-size: 45px;
+
+    animation:
+        flotar 2s infinite ease-in-out;
+}
+
+.final-container h2 {
+    font-size: clamp(28px, 8vw, 55px);
+
+    line-height: 1.25;
+
+    margin: 25px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ff71b5,
+            #fff
+        );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: gradiente 4s infinite;
+}
+
+.final-texto {
+    color: #ccc;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.latido {
+    font-size: 70px;
+
+    margin-top: 30px;
+
+    animation:
+        latido 1.2s infinite;
+
+    filter:
+        drop-shadow(0 0 20px #ff2991);
+}
+
+.final-firma {
+    margin-top: 20px;
+
+    color: #ff63ad;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   CORAZONES
+========================= */
+
+#hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+.heart {
+    position: absolute;
+
+    color: #ff4da6;
+
+    font-size: 15px;
+
+    animation:
+        subirCorazon 5s linear forwards;
+
+    filter:
+        drop-shadow(0 0 8px #ff2f92);
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes subir {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes latido {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+@keyframes brillo {
+
+    0%, 100% {
+        filter:
+            drop-shadow(0 0 5px #ff2f92);
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 30px #ff2f92);
+    }
+
+}
+
+@keyframes gradiente {
+
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+
+}
+
+@keyframes flotar {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+@keyframes subirCorazon {
+
+    0% {
+        transform:
+            translateY(100vh)
+            scale(.5)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-120px)
+            scale(1.4)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+    .pantalla {
+        padding: 20px;
+    }
+
+    .corazon-grande {
+        font-size: 60px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 14px 25px;
+        font-size: 14px;
+    }
+
+    .carta {
+        padding: 22px;
+    }
+
+    .carta p {
+        font-size: 15px;
+    }
+
+    .galeria {
+        gap: 12px;
+    }
+
+}
